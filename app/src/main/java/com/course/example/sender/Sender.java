@@ -1,5 +1,6 @@
 package com.course.example.sender;
 
+import android.content.ComponentName;
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.Button;
@@ -36,7 +37,10 @@ public class Sender extends Activity {
 					
 					public void onClick(View v){
 						Log.e("Permission", "Fire Photon Torpedos");
-						Intent intent = new Intent("com.course.event.serviceevent");
+						Intent intent = new Intent();
+						intent.setComponent(new ComponentName("com.course.example.protectedservice",
+								"com.course.example.protectedservice.TorpedoService"));
+
 						startService(intent);				
 					}
 					});			
