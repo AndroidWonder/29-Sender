@@ -40,8 +40,9 @@ public class Sender extends Activity {
 						Intent intent = new Intent();
 						intent.setComponent(new ComponentName("com.course.example.protectedservice",
 								"com.course.example.protectedservice.TorpedoService"));
-
-						startService(intent);				
+						//at API 26 services have to run in foreground
+						startService(intent);
+						Log.e("Permission", "Service intent sent");
 					}
 					});			
 		
