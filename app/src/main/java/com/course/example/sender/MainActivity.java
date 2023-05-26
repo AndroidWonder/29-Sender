@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v){
                         Log.e("Permission", "Sender sent Broadcast");
                         Intent intent = new Intent("com.course.event.buttonevent");
+                        intent.setComponent(
+                                new ComponentName("com.course.example.receiver",
+                                        "com.course.example.receiver.LogWriteReceiver"));
                         sendBroadcast(intent);
                     }
                 });
@@ -43,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                         //identify component in another app
                         intent.setComponent(new ComponentName("com.course.example.protectedservice",
                                 "com.course.example.protectedservice.TorpedoService"));
-                        //at API 26 services have to run in foreground
                         startService(intent);
                         Log.e("Permission", "Service intent sent");
                     }
