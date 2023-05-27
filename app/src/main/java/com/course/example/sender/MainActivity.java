@@ -30,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v){
                         Log.e("Permission", "Sender sent Broadcast");
                         Intent intent = new Intent("com.course.event.buttonevent");
+                        intent.putExtra("message", "Happy Days");
                         intent.setComponent(
-                                new ComponentName("com.course.example.receiver",
+                               new ComponentName("com.course.example.receiver",
                                         "com.course.example.receiver.LogWriteReceiver"));
                         sendBroadcast(intent);
                     }
